@@ -32,6 +32,7 @@ yarn start # 线上运行
 # 开始
 ## 核心依赖：vue-server-renderer + nodejsServer
 ##通过 vue-server-renderer.createBundleRenderer指定渲染模板，再通过renderToString转成html字符串，整个过程通过上下文context作为容器
+##（开发环境和正式环境配置不同，开发环境配置了热重载便于开发，正式环境之间读取build后的文件）
 
 ```server.js
 const fs = require('fs')
