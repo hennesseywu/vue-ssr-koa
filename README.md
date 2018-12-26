@@ -14,10 +14,12 @@ yarn start # 线上运行
 
 
 # SPA（Single-Page Application - 单页应用程序）VS 服务器端渲染(SSR)：
-## 优势：
+
+### 优势：
 ### 1，更好的SEO：抓包工具不会等待异步javascript完成再抓取页面内容。
 ### 2，更快的内容到达时间(time-to-content)：无需等待javascript加载完成才进行渲染；
-## 劣势：
+
+### 劣势：
 ### 1，某些特定代码只能在某些钩子函数中使用；
 ### 2，前端人员维护nodejs服务并考虑服务器负载问题和缓存问题；
 
