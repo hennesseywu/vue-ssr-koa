@@ -23,7 +23,7 @@ yarn start # 线上运行
 ### 1，某些特定代码只能在某些钩子函数中使用；
 ### 2，前端人员维护nodejs服务并考虑服务器负载问题和缓存问题；
 
- # 服务器端渲染(SSR) VS 预渲染(Prerendering)
+# 服务器端渲染(SSR) VS 预渲染(Prerendering)
 ### 预渲染：只是用来改善某些特定营销页面(如：/，/index等)的SEO；
 ### webpack预渲染：https://github.com/chrisvfritz/prerender-spa-plugin
 
@@ -31,7 +31,7 @@ yarn start # 线上运行
 
 # 开始
 ## 核心依赖：vue-server-renderer + nodejsServer
-## 钩子函数：仅beforeCreated和created会在服务端渲染调用
+## 钩子函数：ssr情况下，仅beforeCreated和created会在服务端渲染调用
 ## 创建工厂实例函数：
 ```
 // server.js
@@ -47,7 +47,6 @@ server.get('*', (req, res) => {
   })
 })
 ```
-# 构建步骤
 
 ## 异步路由配置，按需加载：
 ```
@@ -72,7 +71,7 @@ export function createRouter () {
 
 # vuex：数据预取存储容器
 
-### 1,页面路由组件暴露自定义静态函数： asyncData，实例化之前无法调用this
+### 1,页面路由组件暴露自定义静态函数： asyncData，实例化之前无法调用this只能传入store
 ```
 <template>
   <div>{{ item.title }}</div>
@@ -139,8 +138,7 @@ export default context => {
 ```
 ## 3，客户端预取数据
 
-### 1，在路由导航之前解析数据：等待视图所需数据全部解析才进入页面
-   ### 判断路由组件差异，触发asyncData方法，同步数据到store
+### 1，在路由导航之前解析数据：等待视图所需数据全部解析才进入页面,判断路由组件差异，触发asyncData方法，同步数据到store
 
 ### 2，匹配渲染的视图，再获取数据：通过全局mixin beforeMount方法调用asyncData方法，
 
