@@ -1,6 +1,6 @@
 
 
-## VUE-SSR
+## VUE-SSR 配合webpack自动构建
 
 
 ```shell
@@ -29,7 +29,7 @@ yarn start # 线上运行
 
 # 开始
 ## 核心依赖：vue-server-renderer + nodejsServer
-##钩子函数：仅beforeCreated和created会在服务端渲染调用
+## 钩子函数：仅beforeCreated和created会在服务端渲染调用
 ## 创建工厂实例函数：
 ```
 // server.js
