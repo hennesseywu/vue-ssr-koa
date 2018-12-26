@@ -10,6 +10,7 @@ const {
   createBundleRenderer
 } = require('vue-server-renderer')
 
+
 // 缓存
 const microCache = LRU({
   max: 100,

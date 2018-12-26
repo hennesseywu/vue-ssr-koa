@@ -15,6 +15,7 @@ export default {
   name: 'App',
   methods: {
     update () {
+          // this.$router.push({"path":"/a/233"})
       /* eslint-disable */
       alert('hi')
     }

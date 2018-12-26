@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is page B</h1>
+    <h1>This is page BBBBBB</h1>
     <h3>{{ this.movie }}</h3>
   </div>
 </template>

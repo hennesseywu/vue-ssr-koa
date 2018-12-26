@@ -16,7 +16,7 @@ export function createRouter () {
         redirect: '/a'
       },
       {
-        path: '/a',
+        path: '/a/:id',
         name: 'A',
         component: A
       },

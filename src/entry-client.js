@@ -4,6 +4,7 @@ import { createApp } from './app'
 Vue.mixin({
   beforeRouteUpdate (to, from, next) {
     const { asyncData } = this.$options
+    console.log("全局匹配path相同，id不同情况")
     if (asyncData) {
       asyncData({
         store: this.$store,
@@ -18,6 +19,7 @@ Vue.mixin({
 const { app, router, store } = createApp()
 
 if (window.__INITIAL_STATE__) {
+  console.log("数据同步")
   store.replaceState(window.__INITIAL_STATE__)
 }
 
@@ -32,7 +34,6 @@ router.onReady(() => {
     const activated = matched.filter((c, i) => {
       return diffed || (diffed = (prevMatched[i] !== c))
     })
-
     if (!activated.length) {
       return next()
     }
@@ -42,6 +43,7 @@ router.onReady(() => {
         return c.asyncData({ store, route: to })
       }
     })).then(() => {
+      console.log("客户端数据预取")
       // 停止加载指示器(loading indicator)
       next()
     }).catch(next)
