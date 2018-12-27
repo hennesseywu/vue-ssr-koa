@@ -190,7 +190,7 @@ export function createRouter () {
 # vuex：数据预取存储容器
 
 ### 1,页面路由组件暴露自定义静态函数： asyncData，实例化之前无法调用this只能传入store
-```
+```index.vue
 <template>
   <div>{{ item.title }}</div>
 </template>
@@ -217,7 +217,7 @@ export default {
 ### 3，将asyncData方法执行生成的store附加到上下文中；
 ### 4，使用template时，context.state将作为window.__INITIAL_STATE__状态，自动嵌入最终THML中，client模式下挂载之前store已经可以获取到状态。
 
-```
+```entry-server.js
 import { createApp } from './app'
 
 export default context => {
@@ -260,7 +260,7 @@ export default context => {
 
 ### 2，匹配渲染的视图，再获取数据：通过全局mixin beforeMount方法调用asyncData方法，
 
-```
+```entry-client.js
 Vue.mixin({
   beforeRouteUpdate (to, from, next) {
     const { asyncData } = this.$options
