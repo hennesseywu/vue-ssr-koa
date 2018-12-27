@@ -31,7 +31,7 @@ yarn start # 线上运行
 
 # 开始
 ## 核心依赖：vue-server-renderer + nodejsServer
-##通过 vue-server-renderer.createBundleRenderer指定渲染模板，再通过renderToString转成html字符串，整个过程通过上下文context作为容器
+## 通过 vue-server-renderer.createBundleRenderer指定渲染模板，再通过renderToString转成html字符串，整个过程通过上下文context作为容器
 ##（开发环境和正式环境配置不同，开发环境配置了热重载便于开发，正式环境之间读取build后的文件）
 
 ```server.js
@@ -153,8 +153,7 @@ app.listen(port, () => {
 
 ## 钩子函数：ssr情况下，仅beforeCreated和created会在服务端渲染调用
 ## 创建工厂实例函数：
-```
-// server.js
+``` server.js
 const createApp = require('./app')
 
 server.get('*', (req, res) => {
@@ -169,8 +168,7 @@ server.get('*', (req, res) => {
 ```
 
 ## 异步路由配置，按需加载：
-```
-// router.js
+```router.js
 import Vue from 'vue'
 import Router from 'vue-router'
 
